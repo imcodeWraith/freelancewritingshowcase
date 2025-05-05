@@ -2,46 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Freelance Writing Showcase</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
       color: #333;
     }
     header {
+      background: #20232a;
+      color: #fff;
+      padding: 2rem 1rem;
       text-align: center;
-      padding-bottom: 1rem;
     }
-    .cta {
-      text-align: center;
-      margin-top: 2rem;
+    nav {
+      background: #61dafb;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem;
     }
-    .cta a {
-      background: #007bff;
-      color: white;
-      padding: 0.75rem 1.5rem;
+    nav a {
+      color: #20232a;
       text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: #20232a;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
       border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #20232a;
+      color: #fff;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to Freelance Writing Showcase</h1>
-    <p>Discover talented writers. Promote your work. Get hired.</p>
+    <h1>Freelance Writing Showcase</h1>
+    <p>Promoting writers. Showcasing talent. Opening opportunities.</p>
   </header>
-  <section>
-    <h2>About This Platform</h2>
-    <p>
-      Freelance Writing Showcase is a curated platform for freelance writers to showcase their
-      portfolios, build visibility, and connect with clients seeking skilled storytellers.
-    </p>
-  </section>
-  <div class="cta">
-    <a href="#">Join Now</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#portfolio">Writers</a>
+    <a href="#submit">Submit Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Freelance Writing Showcase is your platform to display your writing portfolio, connect with clients, and get discovered. Whether you're a fiction writer, copywriter, or journalist, this is your spotlight.
+      </p>
+    </section>
+    <section id="portfolio">
+      <h2>Featured Writers</h2>
+      <div class="portfolio">
+        <div class="card">
+          <h3>Jane Doe</h3>
+          <p>Specialty: YA Fiction, Romance</p>
+          <p><a href="#">View Portfolio</a></p>
+        </div>
+        <div class="card">
+          <h3>John Smith</h3>
+          <p>Specialty: Sci-Fi, Technical Writing</p>
+          <p><a href="#">View Portfolio</a></p>
+        </div>
+        <div class="card">
+          <h3>Alex Green</h3>
+          <p>Specialty: Blogs, Lifestyle, Wellness</p>
+          <p><a href="#">View Portfolio</a></p>
+        </div>
+      </div>
+    </section>
+    <section id="submit">
+      <h2>Submit Your Work</h2>
+      <p>
+        Are you a freelance writer looking for exposure? <a href="#">Submit your portfolio</a> and get featured.
+      </p>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: contact@freelancewritingshowcase.com</p>
+    </section>
   </div>
+  <footer>
+    &copy; 2025 Freelance Writing Showcase. All rights reserved.
+  </footer>
 </body>
 </html>

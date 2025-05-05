@@ -3,81 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spotlight for Writers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <meta name="description" content="Freelance Writers Spotlight - A platform for writers to showcase their talents, connect with opportunities, and grow their skills." />
+  <meta name="keywords" content="freelance writing, writer portfolio, writing jobs, writing community" />
+  <title>Freelance Writers Spotlight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Roboto', sans-serif;
+    * {
       margin: 0;
-      background-color: #f4f4f4;
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F9FAFB;
+      color: #1A1A1A;
+      line-height: 1.7;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0F1A2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .preloader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .preloader .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #D4AF37;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     header {
-      background-color: #2C3E50;
-      color: white;
-      padding: 2rem;
+      background: linear-gradient(135deg, #0F1A2E 0%, #2E3F5B 100%);
+      color: #FFFFFF;
+      padding: 2rem 2rem;
       text-align: center;
     }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-      font-size: 2.5rem;
+    header img.logo {
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
     nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 26, 46, 0.95);
       display: flex;
       justify-content: center;
-      background: #1f2d3a;
+      padding: 1.3rem 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
     }
     nav a {
-      color: white;
-      padding: 1rem;
+      color: #FFFFFF;
+      padding: 1rem 2rem;
       text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: all 0.3s ease;
     }
     nav a:hover {
-      background: #F39C12;
-      color: #2C3E50;
+      color: #D4AF37;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
     }
     .hero {
-      background: url('https://images.unsplash.com/photo-1581091870620-eb6e5b59796e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      color: white;
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      color: #FFFFFF;
       text-align: center;
-      padding: 5rem 2rem;
+      padding: 12rem 2rem;
+      animation: fadeIn 2s ease-in-out;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin: 0;
+      font-family: 'Lora', serif;
+      font-size: 3.5rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 2px;
+      color: #F5F5F5;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      color: #E0E0E0;
+    }
+    .hero .cta-button {
+      display: inline-block;
+      padding: 1.3rem 3rem;
+      background: #D4AF37;
+      color: #0F1A2E;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .hero .cta-button:hover {
+      background: #E6C14F;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
     }
     section {
-      padding: 2rem;
-      max-width: 900px;
+      padding: 6rem 2rem;
+      max-width: 1400px;
       margin: auto;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      margin-bottom: 4rem;
+      animation: slideUp 1.2s ease-in-out;
     }
     h2 {
-      font-family: 'Playfair Display', serif;
-      color: #2C3E50;
+      font-family: 'Lora', serif;
+      color: #0F1A2E;
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 3px solid #D4AF37;
+      display: inline-block;
+      padding-bottom: 0.8rem;
+    }
+    p, li {
+      font-size: 1.2rem;
+      margin-bottom: 1.3rem;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 0.8rem 0;
+      position: relative;
+      padding-left: 2.2rem;
+    }
+    ul li:before {
+      content: '\f044'; /* Font Awesome pen icon */
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: #D4AF37;
+      position: absolute;
+      left: 0;
+      font-size: 1.3rem;
+    }
+    #testimonials {
+      background: linear-gradient(180deg, #F9FAFB 0%, #EDEFF2 100%);
+    }
+    #testimonials .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    #testimonials .testimonial {
+      background: #FFFFFF;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    #testimonials .testimonial p {
+      font-style: italic;
+      color: #4A4A4A;
+    }
+    #testimonials .testimonial .author {
+      font-weight: 700;
+      color: #0F1A2E;
+      margin-top: 1rem;
+    }
+    #professional-section {
+      display: none;
+      background: linear-gradient(180deg, #F9FAFB 0%, #E6E9ED 100%);
+    }
+    #professional-section.active {
+      display: block;
+    }
+    #professional-section .feature-highlight {
+      background: #D4AF37;
+      color: #0F1A2E;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    #login-section, #subscription-section {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+    }
+    #login-section input, #subscription-section input {
+      padding: 0.9rem;
+      font-size: 1.1rem;
+      border: 1px solid #D4AF37;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      width: 100%;
+      outline: none;
+    }
+    #login-section button, #subscription-section button {
+      padding: 0.9rem 1.8rem;
+      background: #D4AF37;
+      color: #0F1A2E;
+      border: none;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #login-section button:hover, #subscription-section button:hover {
+      background: #E6C14F;
     }
     footer {
+      background: #0F1A2E;
+      color: #FFFFFF;
       text-align: center;
-      background: #2C3E50;
-      color: white;
-      padding: 1rem;
+      padding: 4rem 2rem;
+      font-size: 1rem;
+    }
+    footer .social-links {
+      margin-bottom: 2rem;
+    }
+    footer .social-links a {
+      color: #D4AF37;
+      margin: 0 1.2rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+    footer .social-links a:hover {
+      color: #E6C14F;
+    }
+    footer .newsletter {
+      margin-top: 2rem;
+    }
+    footer .newsletter p {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+    footer .newsletter input[type="email"] {
+      padding: 0.9rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      width: 280px;
+      outline: none;
+    }
+    footer .newsletter button {
+      padding: 0.9rem 1.8rem;
+      background: #D4AF37;
+      color: #0F1A2E;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    footer .newsletter button:hover {
+      background: #E6C14F;
+    }
+    footer .newsletter .success-message {
+      display: none;
+      color: #D4AF37;
+      margin-top: 1.2rem;
+      font-weight: 600;
+    }
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #D4AF37;
+      color: #0F1A2E;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+    }
+    .back-to-top:hover {
+      background: #E6C14F;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      header img.logo { max-width: 220px; }
+      .hero h2 { font-size: 2.5rem; }
+      .hero p { font-size: 1.2rem; }
+      nav a { padding: 0.9rem 1.2rem; font-size: 1rem; }
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 8rem 1.5rem; min-height: 500px; }
+      footer .newsletter input[type="email"] { width: 220px; }
+      .back-to-top { width: 40px; height: 40px; font-size: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      header img.logo { max-width: 180px; }
+      .hero h2 { font-size: 2rem; }
+      .hero .cta-button { padding: 1rem 2rem; font-size: 1rem; }
+      nav { flex-wrap: wrap; }
+      nav a { padding: 0.7rem; font-size: 0.9rem; }
+      footer .newsletter input[type="email"] { width: 180px; }
     }
   </style>
 </head>
 <body>
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
   <header>
-    <h1>Spotlight for Writers</h1>
+    <img src="YOUR_LOGO_URL_HERE" alt="Freelance Writers Spotlight Logo" class="logo">
   </header>
   <nav>
     <a href="#mission">Mission</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#hobbyist">Hobbyist</a>
+    <a href="#professional-section">Professional</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#submit">Submit</a>
+    <a href="#login-section">Login</a>
+    <a href="#subscription-section">Upgrade</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="hero">
     <h2>Your voice deserves the spotlight.</h2>
+    <p>Elevate your craft and connect with opportunities.</p>
+    <a href="#hobbyist" class="cta-button">Join as a Hobbyist</a>
+    <a href="#subscription-section" class="cta-button" style="margin-left: 1rem;">Go Professional</a>
   </div>
 
   <section id="mission">
@@ -85,33 +386,76 @@
     <p>This site was designed with the goal of showcasing gifted writers' abilities and connecting them to opportunities with potential clients as well as networking with other writers. All levels of writers are welcomed to join to improve their craft, seek information, and helpful feedback. Let's build this community and lift everyone up. We're all going to make it.</p>
   </section>
 
-  <section id="portfolio">
-    <h2>Portfolio Examples</h2>
-    <ul>
-      <li>Short Fiction (PDF, Google Docs link)</li>
-      <li>Excerpt from Novel in Progress</li>
-      <li>Blog Article or Essay</li>
-      <li>Client Copywriting or Freelance Piece</li>
-      <li>Query Letter or Pitch Sample</li>
-      <li>Script or Screenplay Excerpt</li>
-    </ul>
+  <section id="about">
+    <h2>About the Founder</h2>
+    <p><strong>imcodeWraith</strong></p>
+    <p>As a lifelong storyteller and tech enthusiast, I blend my expertise in computer coding with a deep passion for creative writing to inspire and connect writers worldwide. Under the pen name imcodeWraith, I’ve spent years honing my craft as a hobbyist writer, driven by my love for reading and the transformative power of stories. To me, stories are time machines—transporting us to new worlds, helping us lose or find ourselves, and showcasing the artistry of the written word.</p>
+    <p>Frustrated by the lack of platforms that truly serve writers’ needs, I founded Freelance Writers Spotlight to create a vibrant community where creators can sharpen their skills, showcase their talents, and connect directly with job opportunities. With a particular fondness for sci-fi, fantasy, romance, and horror, I’m dedicated to empowering writers across genres to elevate their craft and build meaningful careers. Join me in celebrating the art of storytelling and forging a network that amplifies every writer’s voice.</p>
   </section>
 
-  <section id="features">
-    <h2>Features</h2>
+  <section id="hobbyist">
+    <h2>Hobbyist Community</h2>
+    <p>Join our free hobbyist community to share your work, get feedback, and improve your craft.</p>
     <ul>
-      <li><strong>Writer Directory</strong> – Optional user profiles with genres, bios, and samples</li>
-      <li><strong>Blog Section</strong> – Articles on freelance tips, prompts, writing guides</li>
-      <li><strong>Testimonials</strong> – Share writer success stories and feedback</li>
-      <li><strong>Resource Library</strong> – Templates, tools, videos (coming soon)</li>
-      <li><strong>Newsletter Signup</strong> – Get updates on new resources, spotlights, and writing jobs</li>
+      <li><strong>Portfolio Sharing</strong> – Upload your work (e.g., short fiction, novel excerpts) for community feedback.</li>
+      <li><strong>Writing Prompts</strong> – Access weekly prompts to spark creativity.</li>
+      <li><strong>Community Forums</strong> – Connect with other hobbyists to share tips and ideas.</li>
+      <li><strong>Basic Resource Library</strong> – Free templates and guides to get started.</li>
     </ul>
+    <p>Ready to take your writing to the next level? <a href="#subscription-section">Upgrade to the Professional Plan</a> for exclusive features.</p>
+  </section>
+
+  <section id="professional-section">
+    <h2>Professional Plan</h2>
+    <p class="feature-highlight">Welcome to the Professional Plan! Unlock exclusive features for $9.99/month or $99/year.</p>
+    <ul>
+      <li><strong>Job Board</strong> – Access freelance writing opportunities from clients seeking professionals.</li>
+      <li><strong>Enhanced Portfolio</strong> – Priority visibility to potential clients, with analytics on views and engagement.</li>
+      <li><strong>Client Matching</strong> – Get matched with clients based on your skills and genres.</li>
+      <li><strong>Expanded Resource Library</strong> – Premium templates, video tutorials, and advanced guides.</li>
+      <li><strong>Priority Support</strong> – Faster response times for your queries.</li>
+    </ul>
+    <p>Explore these features and grow your freelance writing career today!</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Writers Are Saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"Freelance Writers Spotlight connected me with my first major client. The community support is incredible!"</p>
+        <p class="author">– Sarah J., Fiction Writer</p>
+      </div>
+      <div class="testimonial">
+        <p>"I’ve improved my craft so much thanks to the feedback and resources here. Highly recommend!"</p>
+        <p class="author">– Michael T., Freelance Copywriter</p>
+      </div>
+      <div class="testimonial">
+        <p>"This platform gave my portfolio the visibility it needed. I landed a gig within weeks!"</p>
+        <p class="author">– Emily R., Screenwriter</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="login-section">
+    <h2>Login</h2>
+    <p>Access your account to manage your portfolio and subscription.</p>
+    <input type="email" id="login-email" placeholder="Email" aria-label="Email">
+    <input type="password" id="login-password" placeholder="Password" aria-label="Password">
+    <button onclick="simulateLogin()">Login</button>
+  </section>
+
+  <section id="subscription-section">
+    <h2>Upgrade to Professional</h2>
+    <p>Unlock exclusive features for $9.99/month or $99/year.</p>
+    <input type="email" id="subscribe-email" placeholder="Email" aria-label="Email">
+    <input type="text" id="card-number" placeholder="Card Number (e.g., 4242 4242 4242 4242)" aria-label="Card Number">
+    <button onclick="simulateSubscribe()">Subscribe</button>
   </section>
 
   <section id="submit">
     <h2>Submission Instructions</h2>
     <p>Send up to 3 writing samples (PDF, Google Doc, or link) and a short bio (max 150 words) to:</p>
-    <p><strong>Email:</strong> submit@spotlightforwriters.com</p>
+    <p><strong>Email:</strong> submit@freelancewritersspotlight.com</p>
     <p>Selected entries will be featured in the Community Spotlight or Writer Portfolio sections.</p>
   </section>
 
@@ -121,7 +465,94 @@
   </section>
 
   <footer>
-    &copy; 2025 Spotlight for Writers. All rights reserved.
+    <div class="social-links">
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="newsletter">
+      <p>Stay updated with our latest resources and opportunities.</p>
+      <div class="newsletter-form">
+        <input type="email" id="newsletter-email" placeholder="Enter your email" aria-label="Newsletter Email">
+        <button onclick="simulateNewsletterSignup()">Subscribe</button>
+      </div>
+      <p class="success-message" id="newsletter-success">Thank you for subscribing!</p>
+    </div>
+    <p>© 2025 Freelance Writers Spotlight. All rights reserved.</p>
   </footer>
+
+  <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', function() {
+      const preloader = document.querySelector('.preloader');
+      preloader.classList.add('fade-out');
+      document.body.classList.add('loaded');
+    });
+
+    // Simulate newsletter signup
+    function simulateNewsletterSignup() {
+      const emailInput = document.getElementById('newsletter-email');
+      const successMessage = document.getElementById('newsletter-success');
+      if (emailInput.value) {
+        successMessage.style.display = 'block';
+        emailInput.value = '';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 3000);
+      }
+    }
+
+    // Simulate login
+    function simulateLogin() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      if (email && password) {
+        localStorage.setItem('userEmail', email);
+        alert('Login successful! You can now access the Professional section if subscribed.');
+      } else {
+        alert('Please enter both email and password.');
+      }
+    }
+
+    // Simulate subscription
+    function simulateSubscribe() {
+      const email = document.getElementById('subscribe-email').value;
+      const cardNumber = document.getElementById('card-number').value;
+      if (email && cardNumber) {
+        localStorage.setItem('subscriptionStatus', 'professional');
+        localStorage.setItem('userEmail', email);
+        alert('Subscription successful! You can now access the Professional section.');
+        document.getElementById('professional-section').classList.add('active');
+      } else {
+        alert('Please enter both email and card number.');
+      }
+    }
+
+    // Check subscription status on page load
+    window.addEventListener('load', function() {
+      if (localStorage.getItem('subscriptionStatus') === 'professional') {
+        document.getElementById('professional-section').classList.add('active');
+      }
+    });
+
+    // Parallax effect for hero section
+    window.addEventListener('scroll', function() {
+      const hero = document.querySelector('.hero');
+      const scrolled = window.pageYOffset;
+      hero.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+    });
+
+    // Back to Top button visibility
+    window.addEventListener('scroll', function() {
+      const backToTop = document.querySelector('.back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+  </script>
 </body>
 </html>

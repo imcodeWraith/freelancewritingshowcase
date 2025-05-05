@@ -4,112 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotlight for Writers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+      background-color: #f4f4f4;
       color: #333;
     }
     header {
-      background: #222;
-      color: #fff;
-      padding: 20px;
+      background-color: #2C3E50;
+      color: white;
+      padding: 2rem;
       text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      font-size: 2.5rem;
     }
     nav {
-      background: #444;
-      padding: 10px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      background: #1f2d3a;
     }
     nav a {
-      color: #fff;
+      color: white;
+      padding: 1rem;
       text-decoration: none;
     }
+    nav a:hover {
+      background: #F39C12;
+      color: #2C3E50;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1581091870620-eb6e5b59796e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 0;
+    }
     section {
-      padding: 40px;
+      padding: 2rem;
       max-width: 900px;
       margin: auto;
-      background: #fff;
-      margin-top: 20px;
-      border-radius: 8px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      color: #2C3E50;
     }
     footer {
-      background: #222;
-      color: #fff;
       text-align: center;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-    .login {
-      max-width: 400px;
-      margin: auto;
-      text-align: center;
+      background: #2C3E50;
+      color: white;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Spotlight for Writers</h1>
-    <p>Email: imcodewraith@gmail.com</p>
   </header>
   <nav>
     <a href="#mission">Mission</a>
     <a href="#portfolio">Portfolio</a>
+    <a href="#features">Features</a>
     <a href="#submit">Submit</a>
-    <a href="#login">Login</a>
     <a href="#contact">Contact</a>
   </nav>
+  <div class="hero">
+    <h2>Your voice deserves the spotlight.</h2>
+  </div>
 
   <section id="mission">
-    <h2>Our Mission</h2>
-    <p>This site was designed with the goal of showcasing gifted writers' abilities and connecting them to opportunities with potential clients as well as networking with other writers. All levels of writers are welcomed to join to improve their craft, seek information and helpful feedback. Let's build this community and lift everyone up. We're all going to make it.</p>
+    <h2>Mission</h2>
+    <p>This site was designed with the goal of showcasing gifted writers' abilities and connecting them to opportunities with potential clients as well as networking with other writers. All levels of writers are welcomed to join to improve their craft, seek information, and helpful feedback. Let's build this community and lift everyone up. We're all going to make it.</p>
   </section>
 
   <section id="portfolio">
-    <h2>Featured Writers & Portfolio Ideas</h2>
+    <h2>Portfolio Examples</h2>
     <ul>
-      <li>Sample short stories, poems, or novel excerpts</li>
-      <li>Articles or blog posts on writing topics</li>
-      <li>Client testimonials or case studies from ghostwriting work</li>
-      <li>Writing challenge submissions or contest entries</li>
-      <li>Author interviews or spotlight features</li>
+      <li>Short Fiction (PDF, Google Docs link)</li>
+      <li>Excerpt from Novel in Progress</li>
+      <li>Blog Article or Essay</li>
+      <li>Client Copywriting or Freelance Piece</li>
+      <li>Query Letter or Pitch Sample</li>
+      <li>Script or Screenplay Excerpt</li>
+    </ul>
+  </section>
+
+  <section id="features">
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Writer Directory</strong> – Optional user profiles with genres, bios, and samples</li>
+      <li><strong>Blog Section</strong> – Articles on freelance tips, prompts, writing guides</li>
+      <li><strong>Testimonials</strong> – Share writer success stories and feedback</li>
+      <li><strong>Resource Library</strong> – Templates, tools, videos (coming soon)</li>
+      <li><strong>Newsletter Signup</strong> – Get updates on new resources, spotlights, and writing jobs</li>
     </ul>
   </section>
 
   <section id="submit">
     <h2>Submission Instructions</h2>
-    <p>To be featured on Spotlight for Writers, please email your submission (up to 3 pieces of writing in PDF or Word format), along with a short bio, headshot (optional), and any social media or website links to: <strong>imcodewraith@gmail.com</strong></p>
-  </section>
-
-  <section id="login">
-    <h2>Member Login</h2>
-    <div class="login">
-      <form>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account? <a href="#">Sign up here</a></p>
-    </div>
+    <p>Send up to 3 writing samples (PDF, Google Doc, or link) and a short bio (max 150 words) to:</p>
+    <p><strong>Email:</strong> submit@spotlightforwriters.com</p>
+    <p>Selected entries will be featured in the Community Spotlight or Writer Portfolio sections.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>If you have any questions, suggestions, or partnership inquiries, please email <strong>imcodewraith@gmail.com</strong>.</p>
+    <p>Email: imcodewraith@gmail.com</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Spotlight for Writers. All rights reserved.</p>
+    &copy; 2025 Spotlight for Writers. All rights reserved.
   </footer>
 </body>
 </html>

@@ -1,65 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotlight for Writers</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; }
-    header { background-color: #2c3e50; color: white; padding: 20px 40px; text-align: center; }
-    nav { background-color: #34495e; padding: 10px 0; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 40px; max-width: 900px; margin: auto; }
-    .portfolio-item { background-color: #fff; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    footer { background-color: #2c3e50; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #444;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .login {
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Spotlight for Writers</h1>
-    <p>Connecting writers with opportunity. We're all going to make it.</p>
+    <p>Email: imcodewraith@gmail.com</p>
   </header>
-
   <nav>
-    <a href="#about">About</a>
+    <a href="#mission">Mission</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#submit">Submit</a>
+    <a href="#login">Login</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="mission">
     <h2>Our Mission</h2>
-    <p>This site was designed with the goal of showcasing gifted writers' abilities and connecting them to opportunities with potential clients as well as networking with other writers. All levels of writers are welcomed to join to improve their craft, seek information, and receive helpful feedback. Let's build this community and lift everyone up. We're all going to make it.</p>
+    <p>This site was designed with the goal of showcasing gifted writers' abilities and connecting them to opportunities with potential clients as well as networking with other writers. All levels of writers are welcomed to join to improve their craft, seek information and helpful feedback. Let's build this community and lift everyone up. We're all going to make it.</p>
   </section>
 
   <section id="portfolio">
-    <h2>Featured Writers</h2>
-    <div class="portfolio-item">
-      <h3>"Beneath the Ivy" by Taylor West</h3>
-      <p>A haunting YA mystery about a girl uncovering her school’s buried secrets. A gripping excerpt from Chapter One is included.</p>
-    </div>
-    <div class="portfolio-item">
-      <h3>"Sparrow’s Fall" by N. J. Grant</h3>
-      <p>Shortlisted in a flash fiction contest, this emotionally rich piece explores the internal world of a grieving teen through poetic prose.</p>
-    </div>
+    <h2>Featured Writers & Portfolio Ideas</h2>
+    <ul>
+      <li>Sample short stories, poems, or novel excerpts</li>
+      <li>Articles or blog posts on writing topics</li>
+      <li>Client testimonials or case studies from ghostwriting work</li>
+      <li>Writing challenge submissions or contest entries</li>
+      <li>Author interviews or spotlight features</li>
+    </ul>
   </section>
 
   <section id="submit">
-    <h2>Submission Guidelines</h2>
-    <p>We accept:</p>
-    <ul>
-      <li>Short stories (up to 5,000 words)</li>
-      <li>Novel excerpts (first chapters or standout scenes)</li>
-      <li>Poetry (up to 3 pieces)</li>
-      <li>Creative nonfiction</li>
-    </ul>
-    <p>Email submissions to <strong>imcodewraith@gmail.com</strong> with the subject: <em>Writer Showcase Submission</em>. Include a brief bio and any relevant links to your social media or portfolio.</p>
+    <h2>Submission Instructions</h2>
+    <p>To be featured on Spotlight for Writers, please email your submission (up to 3 pieces of writing in PDF or Word format), along with a short bio, headshot (optional), and any social media or website links to: <strong>imcodewraith@gmail.com</strong></p>
+  </section>
+
+  <section id="login">
+    <h2>Member Login</h2>
+    <div class="login">
+      <form>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#">Sign up here</a></p>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Have questions? Want to collaborate? Reach out anytime: <strong>imcodewraith@gmail.com</strong></p>
+    <p>If you have any questions, suggestions, or partnership inquiries, please email <strong>imcodewraith@gmail.com</strong>.</p>
   </section>
 
   <footer>
